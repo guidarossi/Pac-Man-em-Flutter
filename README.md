@@ -1,5 +1,12 @@
 <h1>teste02-dart</h1>
 
+<div align="center">
+<img src="https://user-images.githubusercontent.com/63159108/187053128-5dd83be9-767b-47c4-909c-cf93b35f9b2c.png" width="700" />
+</div>
+
+
+
+
 > ⚠ Status: Em desenvolvimento
 
 ### Teste técnico - Escribo
