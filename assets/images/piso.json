@@ -1,0 +1,14 @@
+{ "columns":16,
+ "image":"background2.png",
+ "imageheight":199,
+ "imagewidth":362,
+ "margin":0,
+ "name":"piso",
+ "spacing":0,
+ "tilecount":144,
+ "tiledversion":"1.9.1",
+ "tileheight":22,
+ "tilewidth":22,
+ "type":"tileset",
+ "version":"1.8"
+}
