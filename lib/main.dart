@@ -47,7 +47,7 @@ class Game extends StatelessWidget {
 
       //forceTileSize: const Size(14, 15),
       ),
-      player: PacMan(Vector2(3*7, 3*7)),
+      player: PacMan(Vector2(3*8, 3*8)),
       cameraConfig: CameraConfig(
         moveOnlyMapArea: true,
         //zoom: 2,

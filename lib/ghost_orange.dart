@@ -11,6 +11,7 @@ class GhostOrange extends SimpleEnemy with ObjectCollision {
     position: position,
     size: Vector2(24, 24),
     speed: 120,
+    life: 1000,
     animation: SimpleDirectionAnimation(
       idleLeft: GhostOrangeSpriteSheet.idLeLeft,
       idleRight: GhostOrangeSpriteSheet.idLeRight,
@@ -51,7 +52,7 @@ class GhostOrange extends SimpleEnemy with ObjectCollision {
   }
   
   void _executeAttack() {
-    
+
     simpleAttackMelee(damage: 100, size: Vector2(0, 0));
   }
 
