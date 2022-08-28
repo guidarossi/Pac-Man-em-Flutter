@@ -1,16 +1,38 @@
-# test_game_escribo
+<h1>teste02-dart</h1>
 
-A new Flutter project.
+> ⚠ Status: Em desenvolvimento
 
-## Getting Started
+### Teste técnico - Escribo
 
-This project is a starting point for a Flutter application.
+<h3>📝Descrição:</h3>
+ - Jogo de labirinto desenvolvido em Flutter.
 
-A few resources to get you started if this is your first Flutter project:
+<h3>📝Ferramentas utilizadas no desenvolvimento do projeto:</h3>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+ - <a href="https://developer.android.com/about">Android Studio</a>
+ 
+ - <a href="https://www.figma.com/">Figma</a>
+ 
+ - <a href="https://www.mapeditor.org/">Tilad</a>
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+<h3>⚙️Executando o projeto:</h3>
+ Para executar o projeto você deve ter em sua maquina o Android Studio e o Flutter instalados
+
+- ➡️<a href="https://developer.android.com/studio?gclid=CjwKCAjwgaeYBhBAEiwAvMgp2nmA5E9icC3uGidwTC-WLmkp9jtet6REOB_LtVSoKssOktBQ5kvSsRoCAcUQAvD_BwE&gclsrc=aw.ds#downloads">Download Android Studio</a>
+
+- ➡️<a href="https://docs.flutter.dev/get-started/install">Download Flutter</a>
+
+ Baixe o arquivo .ZIP do projeto e abra a pasta do projeto no Android Studio
+ 
+ - ▶ Com o projeto aberto, verifique se possui um emulador de android configurado
+ 
+ - ℹ <a href="https://developer.android.com/studio/run/emulator?hl=pt-br">Caso não tenha o emulador configurado na maquina</a> 
+ 
+ - ▶ Abra o emulador e execute o arquivo main.dart
+ 
+ 
+ <h3>❗Informação:</h3>
+ 
+ - ❕Outra forma de executar o projeto é utilizando um smartphone Android via <a href="https://canaltech.com.br/android/depuracao-usb-o-que-e/">depuração USB</a> 
+
