@@ -1,9 +1,4 @@
-
-
-import 'dart:ui';
-
 import 'package:bonfire/bonfire.dart';
-
 import 'ghost_orange_spritesheet.dart';
 
 class GhostOrange extends SimpleEnemy with ObjectCollision {

@@ -37,6 +37,9 @@ class Game extends StatelessWidget {
     SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
     return SafeArea(child: BonfireTiledWidget(
       joystick: Joystick(
+        keyboardConfig: KeyboardConfig(
+          keyboardDirectionalType: KeyboardDirectionalType.wasdAndArrows
+        ),
         directional: JoystickDirectional(),
       ),
       map: TiledWorldMap('mapPacMan.json',
@@ -48,12 +51,12 @@ class Game extends StatelessWidget {
 
         'points':(properties)=>Pont(properties.position),
       }
-
       //forceTileSize: const Size(14, 15),
       ),
       player: PacMan(Vector2(3*8, 3*8)),
       cameraConfig: CameraConfig(
         moveOnlyMapArea: true,
+        smoothCameraEnabled: true,
         //zoom: 2,
       ),
       //showCollisionArea: true,
