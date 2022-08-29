@@ -1,22 +1,23 @@
 import 'package:bonfire/bonfire.dart';
-import 'package:bonfire/tiled/model/tiled_world_data.dart';
 import 'package:flutter/material.dart';
-import 'package:bonfire/bonfire.dart';
+import 'package:flutter/services.dart';
 import 'package:test_game_escribo/ghost_orange.dart';
 import 'package:test_game_escribo/pac_man.dart';
 import 'package:test_game_escribo/pont.dart';
 
 void main() {
+
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
+
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Escribo',
       theme: ThemeData(
 
@@ -33,7 +34,7 @@ class Game extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
+    SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
     return SafeArea(child: BonfireTiledWidget(
       joystick: Joystick(
         directional: JoystickDirectional(),
@@ -42,6 +43,9 @@ class Game extends StatelessWidget {
       objectsBuilder: {
         'ghost0':(properties)=>GhostOrange(properties.position),
         'ghost1':(properties)=>GhostOrange(properties.position),
+        'ghost2':(properties)=>GhostOrange(properties.position),
+        'ghost3':(properties)=>GhostOrange(properties.position),
+
         'points':(properties)=>Pont(properties.position),
       }
 

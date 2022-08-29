@@ -10,7 +10,7 @@ class GhostOrange extends SimpleEnemy with ObjectCollision {
   GhostOrange(Vector2 position) : super(
     position: position,
     size: Vector2(24, 24),
-    speed: 120,
+    speed: 80,
     life: 1000,
     animation: SimpleDirectionAnimation(
       idleLeft: GhostOrangeSpriteSheet.idLeLeft,
@@ -21,10 +21,7 @@ class GhostOrange extends SimpleEnemy with ObjectCollision {
       runUp: GhostOrangeSpriteSheet.runUp,
       idleDown: GhostOrangeSpriteSheet.idLeDown,
       runDown: GhostOrangeSpriteSheet.runDown,
-
     ),
-
-
   )
   {
     setupCollision(
