@@ -1,4 +1,5 @@
 import 'package:bonfire/bonfire.dart';
+import 'package:test_game_escribo/player_pontuacao.dart';
 import 'package:test_game_escribo/pont_sprite.dart';
 
 class Pont extends SimpleEnemy {
@@ -14,6 +15,7 @@ class Pont extends SimpleEnemy {
 
   @override
   void die() {
+    pontuacao += 10;
     removeFromParent();
     super.die();
   }

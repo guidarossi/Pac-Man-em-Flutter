@@ -1,5 +1,6 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:flutter/material.dart';
+import 'package:test_game_escribo/player_pontuacao.dart';
 import 'package:test_game_escribo/player_sprite.dart';
 import 'package:test_game_escribo/pont.dart';
 
@@ -7,7 +8,7 @@ class PacMan extends SimplePlayer with ObjectCollision {
 
   PacMan(Vector2 position)
       : super(
-    position: position,
+    position: Vector2(20, 70),
     size: position,
     speed: 160,
     animation: SimpleDirectionAnimation(
@@ -31,15 +32,17 @@ class PacMan extends SimplePlayer with ObjectCollision {
 
       ]),
     );
-}
 
+}
   @override
   void update(double dt) {
+
     _executeAttack();
     super.update(dt);
   }
 
   void _executeAttack() {
+
     simpleAttackMelee(damage: 1, size: Vector2(0, 0));
   }
   @override

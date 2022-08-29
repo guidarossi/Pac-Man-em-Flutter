@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:test_game_escribo/ghost_orange.dart';
 import 'package:test_game_escribo/pac_man.dart';
+import 'package:test_game_escribo/player_pontuacao.dart';
 import 'package:test_game_escribo/pont.dart';
+
+
 
 void main() {
 
@@ -35,31 +38,40 @@ class Game extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
-    return SafeArea(child: BonfireTiledWidget(
-      joystick: Joystick(
-        keyboardConfig: KeyboardConfig(
-          keyboardDirectionalType: KeyboardDirectionalType.wasdAndArrows
-        ),
-        directional: JoystickDirectional(),
-      ),
-      map: TiledWorldMap('mapPacMan.json',
-      objectsBuilder: {
-        'ghost0':(properties)=>GhostOrange(properties.position),
-        'ghost1':(properties)=>GhostOrange(properties.position),
-        'ghost2':(properties)=>GhostOrange(properties.position),
-        'ghost3':(properties)=>GhostOrange(properties.position),
+    return SafeArea(child:
+        BonfireTiledWidget(
+          joystick: Joystick(
+            keyboardConfig: KeyboardConfig(
+                keyboardDirectionalType: KeyboardDirectionalType.wasdAndArrows
+            ),
+            directional: JoystickDirectional(),
+          ),
+          map: TiledWorldMap('mapPacMan.json',
+              objectsBuilder: {
+                'ghost0':(properties)=>GhostOrange(properties.position),
+                'ghost1':(properties)=>GhostOrange(properties.position),
+                'ghost2':(properties)=>GhostOrange(properties.position),
+                'ghost3':(properties)=>GhostOrange(properties.position),
 
-        'points':(properties)=>Pont(properties.position),
-      }
-      //forceTileSize: const Size(14, 15),
-      ),
-      player: PacMan(Vector2(3*8, 3*8)),
-      cameraConfig: CameraConfig(
-        moveOnlyMapArea: true,
-        smoothCameraEnabled: true,
-        //zoom: 2,
-      ),
-      //showCollisionArea: true,
+                'points':(properties)=>Pont(properties.position),
+              }
+            //forceTileSize: const Size(14, 15),
+          ),
+          player: PacMan(Vector2(3*8, 3*8)),
+          overlayBuilderMap: {
+            PlayerPontuacao.overlaykay:(context,game)=> PlayerPontuacao(
+              game:game
+            )
+          },
+          initialActiveOverlays: const[
+            PlayerPontuacao.overlaykay
+          ],
+          cameraConfig: CameraConfig(
+            moveOnlyMapArea: true,
+            smoothCameraEnabled: true,
+            //zoom: 2,
+          ),
+          //showCollisionArea: true,
     ),
     );
   }
