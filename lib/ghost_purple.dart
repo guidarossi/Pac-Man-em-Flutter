@@ -2,6 +2,8 @@ import 'package:bonfire/bonfire.dart';
 import 'ghost_orange_spritesheet.dart';
 import 'dart:async' as async;
 
+import 'ghost_purple_spritesheet.dart';
+
 class GhostPurple extends SimpleEnemy with ObjectCollision, AutomaticRandomMovement{
   GhostPurple(Vector2 position) : super(
     position: position,
@@ -10,14 +12,14 @@ class GhostPurple extends SimpleEnemy with ObjectCollision, AutomaticRandomMovem
     life: 1000,
 
     animation: SimpleDirectionAnimation(
-      idleLeft: GhostOrangeSpriteSheet.idLeLeft,
-      idleRight: GhostOrangeSpriteSheet.idLeRight,
-      runRight: GhostOrangeSpriteSheet.runRight,
-      runLeft: GhostOrangeSpriteSheet.runLeft,
-      idleUp: GhostOrangeSpriteSheet.idLeUp,
-      runUp: GhostOrangeSpriteSheet.runUp,
-      idleDown: GhostOrangeSpriteSheet.idLeDown,
-      runDown: GhostOrangeSpriteSheet.runDown,
+      idleLeft: GhostPurpleSpriteSheet.idLeLeft,
+      idleRight: GhostPurpleSpriteSheet.idLeRight,
+      runRight: GhostPurpleSpriteSheet.runRight,
+      runLeft: GhostPurpleSpriteSheet.runLeft,
+      idleUp: GhostPurpleSpriteSheet.idLeUp,
+      runUp: GhostPurpleSpriteSheet.runUp,
+      idleDown: GhostPurpleSpriteSheet.idLeDown,
+      runDown: GhostPurpleSpriteSheet.runDown,
     ),
   )
   {
@@ -60,8 +62,8 @@ class GhostPurple extends SimpleEnemy with ObjectCollision, AutomaticRandomMovem
           runRandomMovement(
               dt,
               speed: 100,
-              maxDistance: 4000,
-              minDistance: 100,
+              maxDistance: 800,
+              minDistance: 300,
               useAngle: false,
               timeKeepStopped: 0,
               runOnlyVisibleInCamera: true

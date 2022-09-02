@@ -2,11 +2,11 @@
 
 import 'package:bonfire/bonfire.dart';
 
-class GhostOrangeSpriteSheet {
+class GhostPurpleSpriteSheet {
 
 
   static get idLeRight => SpriteAnimation.load(
-    'ghost-orange-right.png',
+    'ghost-purple-right.png',
     SpriteAnimationData.sequenced(
       amount: 4,
       stepTime: 0.1,
@@ -15,7 +15,7 @@ class GhostOrangeSpriteSheet {
   );
 
   static get idLeLeft => SpriteAnimation.load(
-    'ghost-orange-left.png',
+    'ghost-purple-left.png',
     SpriteAnimationData.sequenced(
       amount: 4,
       stepTime: 0.1,
@@ -24,7 +24,7 @@ class GhostOrangeSpriteSheet {
   );
 
   static get idLeUp => SpriteAnimation.load(
-    'ghost-orange-up.png',
+    'ghost-purple-up.png',
     SpriteAnimationData.sequenced(
       amount: 4,
       stepTime: 0.1,
@@ -33,7 +33,7 @@ class GhostOrangeSpriteSheet {
   );
 
   static get idLeDown => SpriteAnimation.load(
-    'ghost-orange-down.png',
+    'ghost-purple-down.png',
     SpriteAnimationData.sequenced(
       amount: 4,
       stepTime: 0.1,
@@ -42,7 +42,7 @@ class GhostOrangeSpriteSheet {
   );
 
   static get runUp => SpriteAnimation.load(
-    'ghost-orange-up.png',
+    'ghost-purple-up.png',
     SpriteAnimationData.sequenced(
       amount: 4,
       stepTime: 0.1,
@@ -51,7 +51,7 @@ class GhostOrangeSpriteSheet {
   );
 
   static get runRight => SpriteAnimation.load(
-    'ghost-orange-right.png',
+    'ghost-purple-right.png',
     SpriteAnimationData.sequenced(
       amount: 4,
       stepTime: 0.1,
@@ -60,7 +60,7 @@ class GhostOrangeSpriteSheet {
   );
 
   static get runLeft => SpriteAnimation.load(
-    'ghost-orange-left.png',
+    'ghost-purple-left.png',
     SpriteAnimationData.sequenced(
       amount: 4,
       stepTime: 0.1,
@@ -69,7 +69,7 @@ class GhostOrangeSpriteSheet {
   );
 
   static get runDown => SpriteAnimation.load(
-    'ghost-orange-down.png',
+    'ghost-purple-down.png',
     SpriteAnimationData.sequenced(
       amount: 4,
       stepTime: 0.1,

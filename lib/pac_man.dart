@@ -68,7 +68,7 @@ class PacMan extends SimplePlayer with ObjectCollision {
       animation?.playOnce(PlayerSpriteSheet.reciveDamage, runToTheEnd: true,
           onFinish: (){
             removeFromParent();
-            gameRef.camera.animateZoom(zoom: 1.2 * 1);
+            gameRef.camera.animateZoom(zoom: 1.0 * 1);
           }
       );
     } else {

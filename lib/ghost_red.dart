@@ -2,6 +2,8 @@ import 'package:bonfire/bonfire.dart';
 import 'ghost_orange_spritesheet.dart';
 import 'dart:async' as async;
 
+import 'ghost_red_spritesheet.dart';
+
 class GhostRed extends SimpleEnemy with ObjectCollision, AutomaticRandomMovement{
   GhostRed(Vector2 position) : super(
     position: position,
@@ -9,14 +11,14 @@ class GhostRed extends SimpleEnemy with ObjectCollision, AutomaticRandomMovement
     speed: 100,
     life: 1000,
     animation: SimpleDirectionAnimation(
-      idleLeft: GhostOrangeSpriteSheet.idLeLeft,
-      idleRight: GhostOrangeSpriteSheet.idLeRight,
-      runRight: GhostOrangeSpriteSheet.runRight,
-      runLeft: GhostOrangeSpriteSheet.runLeft,
-      idleUp: GhostOrangeSpriteSheet.idLeUp,
-      runUp: GhostOrangeSpriteSheet.runUp,
-      idleDown: GhostOrangeSpriteSheet.idLeDown,
-      runDown: GhostOrangeSpriteSheet.runDown,
+      idleLeft: GhostRedSpriteSheet.idLeLeft,
+      idleRight: GhostRedSpriteSheet.idLeRight,
+      runRight: GhostRedSpriteSheet.runRight,
+      runLeft: GhostRedSpriteSheet.runLeft,
+      idleUp: GhostRedSpriteSheet.idLeUp,
+      runUp: GhostRedSpriteSheet.runUp,
+      idleDown: GhostRedSpriteSheet.idLeDown,
+      runDown: GhostRedSpriteSheet.runDown,
     ),
   )
   {

@@ -1,4 +1,5 @@
 import 'package:bonfire/bonfire.dart';
+import 'ghost_blue_spritesheet.dart';
 import 'ghost_orange_spritesheet.dart';
 import 'dart:async' as async;
 
@@ -9,14 +10,14 @@ class GhostBlue extends SimpleEnemy with ObjectCollision, AutomaticRandomMovemen
     speed: 100,
     life: 1000,
     animation: SimpleDirectionAnimation(
-      idleLeft: GhostOrangeSpriteSheet.idLeLeft,
-      idleRight: GhostOrangeSpriteSheet.idLeRight,
-      runRight: GhostOrangeSpriteSheet.runRight,
-      runLeft: GhostOrangeSpriteSheet.runLeft,
-      idleUp: GhostOrangeSpriteSheet.idLeUp,
-      runUp: GhostOrangeSpriteSheet.runUp,
-      idleDown: GhostOrangeSpriteSheet.idLeDown,
-      runDown: GhostOrangeSpriteSheet.runDown,
+      idleLeft: GhostBlueSpriteSheet.idLeLeft,
+      idleRight: GhostBlueSpriteSheet.idLeRight,
+      runRight: GhostBlueSpriteSheet.runRight,
+      runLeft: GhostBlueSpriteSheet.runLeft,
+      idleUp: GhostBlueSpriteSheet.idLeUp,
+      runUp: GhostBlueSpriteSheet.runUp,
+      idleDown: GhostBlueSpriteSheet.idLeDown,
+      runDown: GhostBlueSpriteSheet.runDown,
     ),
   ) {
     setupCollision(
@@ -58,8 +59,8 @@ class GhostBlue extends SimpleEnemy with ObjectCollision, AutomaticRandomMovemen
           runRandomMovement(
               dt,
               speed: 100,
-              maxDistance: 4000,
-              minDistance: 500,
+              maxDistance: 1200,
+              minDistance: 100,
               useAngle: false,
               timeKeepStopped: 0,
               runOnlyVisibleInCamera: true

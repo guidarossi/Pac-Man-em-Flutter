@@ -60,8 +60,8 @@ class GhostOrange extends SimpleEnemy with ObjectCollision, AutomaticRandomMovem
           runRandomMovement(
               dt,
               speed: 100,
-              maxDistance: 4000,
-              minDistance: 100,
+              maxDistance: 400,
+              minDistance: 200,
               useAngle: false,
               timeKeepStopped: 0,
             runOnlyVisibleInCamera: true
