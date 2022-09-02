@@ -1,16 +1,20 @@
 import 'package:bonfire/bonfire.dart';
-import 'package:flutter/material.dart';
-import 'package:test_game_escribo/player_pontuacao.dart';
+import 'package:test_game_escribo/ghost_blue.dart';
+import 'package:test_game_escribo/ghost_orange.dart';
+import 'package:test_game_escribo/ghost_purple.dart';
+import 'package:test_game_escribo/ghost_red.dart';
 import 'package:test_game_escribo/player_sprite.dart';
-import 'package:test_game_escribo/pont.dart';
+
+double vida = 0.1;
 
 class PacMan extends SimplePlayer with ObjectCollision {
 
   PacMan(Vector2 position)
       : super(
-    position: Vector2(20, 70),
+    position: Vector2(20, 35),
     size: position,
     speed: 160,
+    life: vida,
     animation: SimpleDirectionAnimation(
       idleLeft: PlayerSpriteSheet.idLeLeft,
       idleRight: PlayerSpriteSheet.idLeRight,
@@ -23,31 +27,59 @@ class PacMan extends SimplePlayer with ObjectCollision {
     ),
   )
   {
+
     setupCollision(
-      CollisionConfig(collisions: [
+      CollisionConfig(
+          enable: true,
+
+          collisions: [
         CollisionArea.circle(
-            radius: 8,
-            align: Vector2(3, 2)
+            radius: 12,
+            align: Vector2(1, 2)
         ),
 
       ]),
     );
 
 }
+
+  @override
+  bool onCollision(GameComponent component, bool active) {
+
+    if (component is TileWithCollision) {
+
+      } else if(component is GhostOrange || component is GhostPurple || component is GhostBlue || component is GhostRed){
+      die();
+    }
+
+    return super.onCollision(component, active);
+  }
+
   @override
   void update(double dt) {
 
-    _executeAttack();
     super.update(dt);
   }
 
-  void _executeAttack() {
-
-    simpleAttackMelee(damage: 1, size: Vector2(0, 0));
-  }
   @override
   void die() {
-    removeFromParent();
+    gameRef.camera.animateZoom(zoom: 2.5 * 1.0);
+    if(lastDirectionHorizontal == Direction.left) {
+      animation?.playOnce(PlayerSpriteSheet.reciveDamage, runToTheEnd: true,
+          onFinish: (){
+            removeFromParent();
+            gameRef.camera.animateZoom(zoom: 1.2 * 1);
+          }
+      );
+    } else {
+      animation?.playOnce(PlayerSpriteSheet.reciveDamage, runToTheEnd: true,
+          onFinish: (){
+            removeFromParent();
+            gameRef.camera.animateZoom(zoom: 1.2 * 1);
+          }
+      );
+    }
     super.die();
-}
+ }
+
 }

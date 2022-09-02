@@ -1,0 +1,523 @@
+import 'package:bonfire/bonfire.dart';
+import 'package:bonfire/tiled/model/tiled_data_object_collision.dart';
+import 'package:flutter/widgets.dart';
+import 'package:test_game_escribo/ghost_blue.dart';
+import 'package:test_game_escribo/ghost_red.dart';
+import 'ghost_orange_spritesheet.dart';
+import 'dart:async' as async;
+
+class GhostOrange extends SimpleEnemy with ObjectCollision, AutomaticRandomMovement{
+  GhostOrange(Vector2 position) : super(
+    position: position,
+    size: Vector2(24, 24),
+    speed: 80,
+    life: 1000,
+
+    animation: SimpleDirectionAnimation(
+      idleLeft: GhostOrangeSpriteSheet.idLeLeft,
+      idleRight: GhostOrangeSpriteSheet.idLeRight,
+      runRight: GhostOrangeSpriteSheet.runRight,
+      runLeft: GhostOrangeSpriteSheet.runLeft,
+      idleUp: GhostOrangeSpriteSheet.idLeUp,
+      runUp: GhostOrangeSpriteSheet.runUp,
+      idleDown: GhostOrangeSpriteSheet.idLeDown,
+      runDown: GhostOrangeSpriteSheet.runDown,
+    ),
+  )
+  {
+    setupCollision(
+      CollisionConfig(collisions: [
+        CollisionArea.circle(
+            radius: 8,
+            align: Vector2(3, 4),
+        ),
+      ]),
+    );
+
+  }
+
+  // void _verificaPontos(async.Timer timer){
+  //
+  //  print("CHEGOU AQUI");
+  // }
+
+  int? indiceDirection = 0;
+  var decideFuncao;
+  var posicao;
+  late async.Timer componentId;
+  @override
+  bool onCollision(GameComponent component, bool active) {
+
+    //componentId = async.Timer.periodic(const Duration(seconds: 3), _verificaPontos);
+    if (component is TileWithCollision) {
+      component.enableCollision(true);
+      indiceDirection = component.directionThePlayerIsIn()?.index;
+      print("${component.directionThePlayerIsIn()}");
+      print("BATEEEEU");
+      print("${component.id}");
+      print("${component.id.compareTo(component.id)}");
+      countNpcT += 1;
+      count += 1;
+      print("${component.rectCollision.center}");
+
+
+      if(posicao == component.rectCollision.center){
+        print("IGUAIS");
+      } else {
+        print("DIFERENTES");
+        posicao = component.rectCollision.center;
+      }
+      //print(' ${count}');
+      //print(' ${countNpcT}');
+      // Do anything you want
+    }else if (component is GhostRed) {
+      component.collisionConfig?.enable = false;
+    }else if (component is GhostBlue) {
+      component.collisionConfig?.enable = false;
+    }
+      //component.enableCollision(false);
+
+      // Do anything you want
+    // }else if(component is GhostOrange && component is TiledWorldMap){
+    //   component.enableCollision(true);
+    // }
+
+    // active = true : this component enter in collision with param component
+    // active = false : param component enter in collision with this
+
+    // if return `false` so the object will not collide with anything or block the passage
+    return super.onCollision(component, active);
+  }
+
+
+
+  // @override
+  // bool checkCollision(ObjectCollision component, {Vector2? displacement}) {
+  //   if (component is GhostOrange) {
+  //     enableCollision(false);
+  //   }
+  //   return super.checkCollision(component, displacement: displacement);
+  // }
+
+
+  @override
+  void update(double dt) {
+
+   enableCollision(true);
+
+    //print(checkCollision(GhostOrange(position)));
+    //GhostOrange(position).enableCollision(true);
+    //GhostOrange;
+    //enableCollision();
+    //getAxisDirectionFromAxisReverseAndDirectionality(context, axis, reverse)
+    seePlayer(
+        observed: (player){
+          //_verificaNpcTravado();
+          count = 0;
+          seeAndMoveToPlayer(
+              closePlayer: (player) {
+                _executeAttack();
+
+              },
+              radiusVision: 200,
+              margin: 0
+          );
+        },
+        notObserved: (){
+          countNpcT = 0;
+        //_verificaColisao();
+          runRandomMovement(
+              dt,
+              speed: 120,
+              maxDistance: 4000,
+              minDistance: 100,
+              useAngle: false,
+              timeKeepStopped: 0
+          );
+    },
+      radiusVision: 200,
+    );
+    super.update(dt);
+  }
+
+  void _executeAttack() {
+
+    simpleAttackMelee(damage: 100, size: Vector2(0, 0));
+  }
+
+  var count = 0;
+  @override
+  void _verificaColisao(){
+
+    if(count < 20){
+
+      switch(count) {
+        case 0: {
+          moveUp(120);
+        }
+        break;
+
+        case 1: {
+          moveLeft(120);
+        }
+        break;
+        case 2: {
+          moveUp(120);
+        }
+        break;
+        case 3: {
+          moveDown(120);
+        }
+        break;
+        case 4: {
+          moveLeft(120);
+        }
+        break;
+
+        case 5: {
+          moveUp(120);
+        }
+        break;
+        case 6: {
+          moveDown(120);
+        }
+        break;
+
+        case 7: {
+          moveLeft(120);
+        }
+        break;
+        case 8: {
+          moveUp(120);
+        }
+        break;
+        case 9: {
+          moveDown(120);
+        }
+        break;
+        case 10: {
+          moveLeft(120);
+        }
+        break;
+
+        case 11: {
+          moveUp(120);
+        }
+        break;
+        case 12: {
+          moveDown(120);
+        }
+        break;
+
+        case 13: {
+          moveLeft(120);
+        }
+        break;
+        case 14: {
+          moveUp(120);
+        }
+        break;
+        case 15: {
+          moveDown(120);
+        }
+        break;
+        case 16: {
+          moveLeft(120);
+        }
+        break;
+
+        case 17: {
+          moveUp(120);
+        }
+        break;
+
+        default: {
+          count = 0;
+        }
+        break;
+      }
+    }
+    else if(count < 20){
+
+      switch(count) {
+        case 0: {
+          moveRight(120);
+        }
+        break;
+
+        case 1: {
+          moveDown(120);
+        }
+        break;
+        case 2: {
+          moveUp(120);
+        }
+        break;
+        case 3: {
+          moveRight(120);
+        }
+        break;
+        case 4: {
+          moveDown(120);
+        }
+        break;
+
+        case 5: {
+          moveUp(120);
+        }
+        break;
+        case 6: {
+          moveRight(120);
+        }
+        break;
+
+        case 7: {
+          moveDown(120);
+        }
+        break;
+        case 8: {
+          moveUp(120);
+        }
+        break;
+        case 9: {
+          moveRight(120);
+        }
+        break;
+        case 10: {
+          moveDown(120);
+        }
+        break;
+
+        case 11: {
+          moveUp(120);
+        }
+        break;
+        case 12: {
+          moveDown(120);
+        }
+        break;
+
+        case 13: {
+          moveDown(120);
+        }
+        break;
+        case 14: {
+          moveUp(120);
+        }
+        break;
+        case 15: {
+          moveRight(120);
+        }
+        break;
+        case 16: {
+          moveDown(120);
+        }
+        break;
+
+        case 17: {
+          moveUp(120);
+        }
+        break;
+
+        default: {
+          count = 0;
+        }
+        break;
+      }
+    }
+    else if(count < 20){
+
+      switch(count) {
+        case 0: {
+          moveRight(120);
+        }
+        break;
+
+        case 1: {
+          moveLeft(120);
+        }
+        break;
+        case 2: {
+          moveRight(120);
+        }
+        break;
+        case 3: {
+          moveLeft(120);
+        }
+        break;
+        case 4: {
+          moveLeft(120);
+        }
+        break;
+
+        case 5: {
+          moveRight(120);
+        }
+        break;
+        case 6: {
+          moveLeft(120);
+        }
+        break;
+
+        case 7: {
+          moveRight(120);
+        }
+        break;
+        case 8: {
+          moveLeft(120);
+        }
+        break;
+        case 9: {
+          moveRight(120);
+        }
+        break;
+        case 10: {
+          moveLeft(120);
+        }
+        break;
+
+        case 11: {
+          moveRight(120);
+        }
+        break;
+        case 12: {
+          moveLeft(120);
+        }
+        break;
+
+        case 13: {
+          moveRight(120);
+        }
+        break;
+        case 14: {
+          moveLeft(120);
+        }
+        break;
+        case 15: {
+          moveRight(120);
+        }
+        break;
+        case 16: {
+          moveLeft(120);
+        }
+        break;
+
+        case 17: {
+          moveRight(120);
+        }
+        break;
+
+        default: {
+          count = 0;
+        }
+        break;
+      }
+    }
+    else if(count < 20){
+
+      switch(count) {
+        case 0: {
+          moveDown(120);
+        }
+        break;
+
+        case 1: {
+          moveRight(120);
+        }
+        break;
+        case 2: {
+          moveUp(120);
+        }
+        break;
+        case 3: {
+          moveDown(120);
+        }
+        break;
+        case 4: {
+          moveRight(120);
+        }
+        break;
+
+        case 5: {
+          moveUp(120);
+        }
+        break;
+        case 6: {
+          moveDown(120);
+        }
+        break;
+
+        case 7: {
+          moveRight(120);
+        }
+        break;
+        case 8: {
+          moveUp(120);
+        }
+        break;
+        case 9: {
+          moveDown(120);
+        }
+        break;
+        case 10: {
+          moveRight(120);
+        }
+        break;
+
+        case 11: {
+          moveUp(120);
+        }
+        break;
+        case 12: {
+          moveDown(120);
+        }
+        break;
+
+        case 13: {
+          moveRight(120);
+        }
+        break;
+        case 14: {
+          moveUp(120);
+        }
+        break;
+        case 15: {
+          moveDown(120);
+        }
+        break;
+        case 16: {
+          moveRight(120);
+        }
+        break;
+
+        case 17: {
+          moveUp(120);
+        }
+        break;
+
+        default: {
+          count = 0;
+        }
+        break;
+      }
+    }
+  }
+
+  var countNpcT = 0;
+  @override
+  void _verificaNpcTravado(){
+
+    if(countNpcT >= 1 && countNpcT < 30){
+      moveLeft(120);
+    } else if(countNpcT >= 30 && countNpcT < 60) {
+      moveRight(120);
+    } else if(countNpcT >= 60 && countNpcT < 90) {
+      moveUp(120);
+    } else if(countNpcT >= 90 && countNpcT < 120) {
+      moveDown(120);
+    } else {
+      countNpcT = 0;
+    }
+
+  }
+}

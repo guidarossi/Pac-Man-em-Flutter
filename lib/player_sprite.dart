@@ -74,4 +74,16 @@ class PlayerSpriteSheet{
       textureSize: Vector2(32,32),
     ),
   );
+
+
+  static get reciveDamage => SpriteAnimation.load(
+    'pacman-death.png',
+    SpriteAnimationData.sequenced(
+      amount: 5,
+      stepTime: 0.8,
+      loop: false,
+      textureSize: Vector2(32,32),
+    ),
+  );
+
 }

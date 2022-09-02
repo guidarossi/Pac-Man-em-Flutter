@@ -1,13 +1,9 @@
-
-
-
 import 'package:bonfire/bonfire.dart';
 import 'package:flutter/material.dart';
 import 'dart:async' as async;
 
-import 'package:test_game_escribo/main.dart';
+import 'package:test_game_escribo/pac_man.dart';
 
-int pontuacao = 0;
 
 class PlayerPontuacao extends StatefulWidget {
 
@@ -22,17 +18,20 @@ class PlayerPontuacao extends StatefulWidget {
 
 class _PlayerPontuacaoState extends State<PlayerPontuacao> {
 
+  late int _fps = FpsComponent().windowSize;
   late async.Timer _pontuacao;
   @override
   void initState() {
 
-
+    _fps;
     _pontuacao = async.Timer.periodic(const Duration(milliseconds: 100), _verificaPontos);
     super.initState();
   }
 
   @override
   void dispose() {
+
+    _fps;
     _pontuacao.cancel();
     super.dispose();
   }
@@ -43,23 +42,22 @@ class _PlayerPontuacaoState extends State<PlayerPontuacao> {
       Material(
         type: MaterialType.transparency,
         child:
-      Container(
-        child:
-    Text("Pontuação: $pontuacao",
-      textAlign: TextAlign.center,
-      overflow: TextOverflow.ellipsis,
-      style: const TextStyle(fontWeight: FontWeight.bold,
-      color: Colors.blue,
-        wordSpacing: 10
-      ),
-    )));
+      Text("Pontuação: ${vida.toInt()}",
+        textAlign: TextAlign.center,
+        overflow: TextOverflow.ellipsis,
+        style: const TextStyle(fontWeight: FontWeight.bold,
+        color: Colors.blue,
+          wordSpacing: 10
+        ),
+      ));
   }
 
   void _verificaPontos(async.Timer timer){
-
-    if(pontuacao.sign != pontuacao){
+    
+    if(vida.sign != vida){
       setState(() {
-        pontuacao = pontuacao;
+        _fps = _fps;
+        vida = vida;
       });
     }
   }

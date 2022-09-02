@@ -2,9 +2,13 @@ import 'package:bonfire/bonfire.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:test_game_escribo/ghost_orange.dart';
+import 'package:test_game_escribo/ghost_purple.dart';
 import 'package:test_game_escribo/pac_man.dart';
 import 'package:test_game_escribo/player_pontuacao.dart';
 import 'package:test_game_escribo/pont.dart';
+
+import 'ghost_blue.dart';
+import 'ghost_red.dart';
 
 
 
@@ -48,15 +52,17 @@ class Game extends StatelessWidget {
           ),
           map: TiledWorldMap('mapPacMan.json',
               objectsBuilder: {
-                'ghost0':(properties)=>GhostOrange(properties.position),
-                'ghost1':(properties)=>GhostOrange(properties.position),
+                'ghost0':(properties)=>GhostRed(properties.position),
+                'ghost1':(properties)=>GhostPurple(properties.position),
                 'ghost2':(properties)=>GhostOrange(properties.position),
-                'ghost3':(properties)=>GhostOrange(properties.position),
+                'ghost3':(properties)=>GhostBlue(properties.position),
 
                 'points':(properties)=>Pont(properties.position),
               }
+
             //forceTileSize: const Size(14, 15),
           ),
+
           player: PacMan(Vector2(3*8, 3*8)),
           overlayBuilderMap: {
             PlayerPontuacao.overlaykay:(context,game)=> PlayerPontuacao(

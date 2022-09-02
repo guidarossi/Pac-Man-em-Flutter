@@ -6,7 +6,7 @@ class PontSpriteSheet {
 
 
   static get idLeRight => SpriteAnimation.load(
-    'ponTeste.png',
+    'points-teste.png',
     SpriteAnimationData.sequenced(
       amount: 2,
       stepTime: 0.3,
@@ -15,7 +15,7 @@ class PontSpriteSheet {
   );
 
   static get runRight => SpriteAnimation.load(
-    'ponTeste.png',
+    'points-teste.png',
     SpriteAnimationData.sequenced(
       amount: 2,
       stepTime: 0.3,

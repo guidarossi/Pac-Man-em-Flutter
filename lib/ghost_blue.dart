@@ -2,13 +2,12 @@ import 'package:bonfire/bonfire.dart';
 import 'ghost_orange_spritesheet.dart';
 import 'dart:async' as async;
 
-class GhostOrange extends SimpleEnemy with ObjectCollision, AutomaticRandomMovement{
-  GhostOrange(Vector2 position) : super(
+class GhostBlue extends SimpleEnemy with ObjectCollision, AutomaticRandomMovement {
+  GhostBlue(Vector2 position) : super(
     position: position,
     size: Vector2(24, 24),
     speed: 100,
     life: 1000,
-
     animation: SimpleDirectionAnimation(
       idleLeft: GhostOrangeSpriteSheet.idLeLeft,
       idleRight: GhostOrangeSpriteSheet.idLeRight,
@@ -19,8 +18,7 @@ class GhostOrange extends SimpleEnemy with ObjectCollision, AutomaticRandomMovem
       idleDown: GhostOrangeSpriteSheet.idLeDown,
       runDown: GhostOrangeSpriteSheet.runDown,
     ),
-  )
-  {
+  ) {
     setupCollision(
       CollisionConfig(collisions: [
         CollisionArea.circle(
@@ -29,12 +27,12 @@ class GhostOrange extends SimpleEnemy with ObjectCollision, AutomaticRandomMovem
         ),
       ]),
     );
-
   }
+
 
   void initTime(async.Timer timer){
     if(init == 0){
-      init = 1;
+      init  = 1;
     }
   }
 
@@ -61,10 +59,10 @@ class GhostOrange extends SimpleEnemy with ObjectCollision, AutomaticRandomMovem
               dt,
               speed: 100,
               maxDistance: 4000,
-              minDistance: 100,
+              minDistance: 500,
               useAngle: false,
               timeKeepStopped: 0,
-            runOnlyVisibleInCamera: true
+              runOnlyVisibleInCamera: true
           );
         },
         radiusVision: 200,
