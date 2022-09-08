@@ -9,7 +9,7 @@
 
 > ⚠ Status: Em desenvolvimento
 
-### Teste técnico - Escribo
+### Pac-Man em Flutter
 
 <h3>📝Descrição:</h3>
  - Jogo de labirinto desenvolvido em Flutter.
